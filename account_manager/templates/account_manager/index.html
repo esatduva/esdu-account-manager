@@ -1,0 +1,22 @@
+{% extends 'account_manager/base.html' %}
+
+{% block page_header %}
+	<h1>Account</h1>
+{% endblock %}
+
+{% block content %} 
+	<div class="col-md-6">
+		<h4>Latest Incomes</h4>
+		<ul>
+			{% for income in last_incomes %}
+				<li>
+					{{income.amount}} {{currency.value}} 
+					
+					{% if income.cat is not None %}
+						{{income.cat.icon | safe}}
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
